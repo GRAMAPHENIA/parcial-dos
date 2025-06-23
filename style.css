@@ -185,7 +185,6 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
   color: #6d5337;
   max-width: 50%;
 }
@@ -195,44 +194,53 @@ nav a:hover {
 ------------------------- */
 
 #proceso {
-  padding: 4rem 2rem;
   position: relative;
-}
-
-#proceso .contenedor-proceso {
+  height: 100vh;
   display: flex;
-  flex-direction: row-reverse;
+  margin: auto;
+  overflow: hidden;
+  background-color: #f9f5f2;
+}
+
+#proceso .contenedor-taller {
+  display: flex;
   max-width: 1200px;
-  margin: 0 auto;
-  gap: 3rem;
-  align-items: center;
-}
-
-#proceso .texto {
-  flex: 1;
-  padding: 1rem;
-}
-
-#proceso figure {
-  margin: 0;
-  width: 100%;
-  flex: 1;
-}
-
-#proceso img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  margin: auto;
 }
 
 #proceso h2 {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   color: #2f2c2b;
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: end;
   width: 100%;
+}
+
+#proceso .imagen,
+#proceso figure {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  margin: auto;
+}
+
+#proceso img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+#proceso .texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #6d5337;
+  max-width: 50%;
+  padding: 2rem;
+  line-height: 1.8;
 }
 
 /* -------------------------
@@ -267,10 +275,15 @@ nav a:hover {
 
 .categorias-adorno-tres {
   background-color: #ca9a8e;
-  width: 100px;
-  height: 100px;
-  position: relative;
-  z-index: 1;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  transform: translateY(-50%);
+  z-index: -1;
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 /* -------------------------
@@ -333,24 +346,119 @@ section p {
    CATEGORÍAS (index.html)
 ------------------------- */
 
-#categorias ul {
+#categorias {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 0;
-  list-style: none;
+  align-items: center;
+  background-color: #fff9f7;
+  padding: 4rem 0;
+  overflow: hidden;
 }
 
-#categorias li {
-  width: 200px;
+.categorias-adorno-izquierdo,
+.categorias-adorno-derecho {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: #f0d7d1;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.categorias-adorno-izquierdo {
+  top: -150px;
+  left: -150px;
+}
+
+.categorias-adorno-derecho {
+  bottom: -150px;
+  right: -150px;
+}
+
+#categorias .contenedor-taller {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.catalogo-contenido {
+  text-align: center;
+  width: 100%;
+}
+
+#categorias h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #2f2c2b;
+  margin-bottom: 3rem;
   text-align: center;
 }
 
-#categorias img {
+.catalogo-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.catalogo-item {
+  flex: 0 1 300px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalogo-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.catalogo-item img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.btn-catalogo {
+  display: block;
+  padding: 1rem;
+  background-color: #ca9a8e;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border-radius: 0 0 16px 16px;
+}
+
+.btn-catalogo:hover {
+  background-color: #b3867a;
+}
+
+.btn-ver-mas {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #8b5a2b;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-ver-mas:hover {
+  background-color: #6d4621;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* -------------------------
