@@ -399,22 +399,158 @@ section p {
   text-align: center;
 }
 
+/* -------------------------
+   PÁGINA DE CATÁLOGO
+------------------------- */
+
+.catalogo-seccion {
+  position: relative;
+  padding: 6rem 0;
+  background-color: #fff9f7;
+}
+
+.catalogo-seccion .contenedor-taller {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.catalogo-seccion .texto {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.catalogo-seccion h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  color: #2f2c2b;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.catalogo-seccion h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: #ca9a8e;
+  margin: 1.5rem auto 0;
+  opacity: 0.7;
+}
+
+.catalogo-seccion p {
+  color: #6d5337;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
 .catalogo-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
 }
 
 .catalogo-item {
-  flex: 0 1 300px;
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
+
+.catalogo-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.catalogo-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.catalogo-item:hover img {
+  transform: scale(1.05);
+}
+
+.catalogo-item h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #2f2c2b;
+  margin: 1.5rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.catalogo-item p {
+  color: #6d5337;
+  padding: 0 1.5rem 2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* Estilos para el footer en páginas internas */
+body > footer {
+  background-color: #f9f5f2;
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid #f0e6e1;
+  margin-top: 0;
+}
+
+body > footer p {
+  color: #8b7d72;
+  margin-bottom: 1rem;
+}
+
+body > footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+body > footer a {
+  color: #ca9a8e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+body > footer a:hover {
+  color: #fe9b83;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .catalogo-seccion {
+    padding: 4rem 0;
+  }
+  
+  .catalogo-seccion h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* .catalogo-grid is now defined in the PÁGINA DE CATÁLOGO section */
+/* Removed duplicate style */
 
 .catalogo-item:hover {
   transform: translateY(-10px);
