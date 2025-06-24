@@ -400,106 +400,168 @@ section p {
 }
 
 /* -------------------------
-   PÁGINA DE CATÁLOGO
+   PÁGINA DE CATÁLOGO Y NOVEDADES
 ------------------------- */
-
-.catalogo-seccion {
+.catalogo-seccion,
+.novedades-seccion {
   position: relative;
-  padding: 6rem 0;
-  background-color: #fff9f7;
+  padding: 4rem 1rem;
+  background-color: #f9f5f3;
 }
 
-.catalogo-seccion .contenedor-taller {
+.catalogo-seccion .contenedor-taller,
+.novedades-seccion .contenedor-taller {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.catalogo-seccion .texto {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 4rem;
+.catalogo-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.catalogo-seccion h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.8rem;
+.catalogo-contenido h2,
+.novedades-seccion h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
   color: #2f2c2b;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   position: relative;
-  padding-bottom: 1rem;
+  display: inline-block;
 }
 
-.catalogo-seccion h2::after {
+.catalogo-contenido h2::after,
+.novedades-seccion h2::after {
   content: '';
-  display: block;
-  width: 100px;
+  position: absolute;
+  width: 60%;
   height: 3px;
   background-color: #ca9a8e;
-  margin: 1.5rem auto 0;
-  opacity: 0.7;
+  bottom: -10px;
+  left: 20%;
+  border-radius: 3px;
 }
 
-.catalogo-seccion p {
-  color: #6d5337;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 0;
-}
-
-.catalogo-grid {
+.catalogo-grid,
+.novedades-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2.5rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.catalogo-item {
+.catalogo-item,
+.novedad-item {
   background: white;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
-.catalogo-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+.catalogo-item:hover,
+.novedad-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-.catalogo-item img {
+.catalogo-item img,
+.novedad-imagen img {
   width: 100%;
   height: 250px;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.catalogo-item:hover img {
+.catalogo-item:hover img,
+.novedad-item:hover .novedad-imagen img {
   transform: scale(1.05);
 }
 
-.catalogo-item h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
+.catalogo-item h3,
+.novedad-contenido h3 {
+  font-family: 'Playfair Display', serif;
   color: #2f2c2b;
-  margin: 1.5rem 1.5rem 1rem;
-  text-align: center;
+  margin: 1.2rem 1.5rem 0.5rem;
+  font-size: 1.4rem;
 }
 
-.catalogo-item p {
-  color: #6d5337;
-  padding: 0 1.5rem 2rem;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 0;
-  text-align: center;
+.catalogo-item p,
+.novedad-contenido p {
+  color: #5a5756;
+  margin: 0 1.5rem 1.5rem;
+  line-height: 1.6;
   flex-grow: 1;
 }
 
-/* Estilos para el footer en páginas internas */
+/* Estilos específicos para novedades */
+.novedad-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.novedad-imagen {
+  overflow: hidden;
+  height: 200px;
+}
+
+.novedad-contenido {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.novedad-fecha {
+  display: block;
+  color: #ca9a8e;
+  font-size: 0.9rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-style: italic;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .catalogo-grid,
+  .novedades-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .catalogo-item,
+  .novedad-item {
+    margin-bottom: 2rem;
+  }
+  
+  .catalogo-contenido h2,
+  .novedades-seccion h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .novedad-imagen {
+    height: 250px;
+  }
+}
+
+/* Estilos para el texto introductorio */
+.novedades-seccion .texto {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.novedades-seccion .texto p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5a5756;
+}
+
 body > footer {
   background-color: #f9f5f2;
   padding: 2rem 0;
@@ -548,9 +610,6 @@ body > footer a:hover {
     font-size: 2.2rem;
   }
 }
-
-/* .catalogo-grid is now defined in the PÁGINA DE CATÁLOGO section */
-/* Removed duplicate style */
 
 .catalogo-item:hover {
   transform: translateY(-10px);
